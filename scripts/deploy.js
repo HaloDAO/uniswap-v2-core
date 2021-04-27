@@ -20,6 +20,10 @@ async function main() {
     token2Address = token2.address;
 
     await factory.createPair(token1Address, token2Address);
+
+    console.log('Factory Address: ', factory.address);
+    console.log('Token 1 Address: ', token1Address);
+    console.log('Token 2 Address: ', token2Address);
   }
   
 main()
