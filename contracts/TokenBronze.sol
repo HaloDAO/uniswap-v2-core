@@ -4,5 +4,15 @@ import "@openzeppelin/contracts/token/ERC20/ERC20Detailed.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract TokenBronze is ERC20Detailed, ERC20 {
-    constructor() ERC20Detailed('TokenBronze', 'BRNZ', 18) public {}
+    string public functionCalled;
+    uint8 public constant DECIMALS = 18;
+    uint256 public constant INITIAL_SUPPLY = 10000 * (10 ** uint256(DECIMALS));
+
+    constructor() ERC20Detailed('TokenBronze', 'BRNZ', 18) public {
+        _mint(msg.sender, INITIAL_SUPPLY);
+    }
+
+    function() external payable{
+        functionCalled = 'fallback';
+    }
 }
