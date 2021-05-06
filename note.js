@@ -6,19 +6,20 @@ await web3.eth.sendTransaction({from: accounts[0], to: TokenGold.address, value:
 
 balance = await web3.eth.getBalance(instance.address);
 
+factory = await UniswapV2Factory.deployed()
 
 router = await UniswapV2Router02.deployed()
 blockNum = await web3.eth.getBlockNumber()
 block = await web3.eth.getBlock(blockNum)
-router.addLiquidity('0x781e6D3b790c69c5eF6e8099142B8ff230B682fC','0x0e1b770Eb0B04dDE02019fe0f3042424fAB8fa88', 10, 15, 1, 1, '0x8898f3dD2E04748c98F16520799df62E9386b2B8', block['timestamp'])
+router.addLiquidity('0x8B7857C6475d73250AB424df493d40b38765d264','0xb2e80aacAbb882208Aa78ACc88CC790e05ecbD14', 10, 15, 1, 1, '0xE88718B6abA54ccEf965a5D6289bB1D829c9bF70', block['timestamp'])
 
 
-FACTORY_ADDRESS = 0xff6C84C4FaBd1AC06C9E131646a11542150E1A4E
-TokenGold = 0x781e6D3b790c69c5eF6e8099142B8ff230B682fC
-TokenSilver = 0x48586DAD3200aC785BC9Bf641CEd9c9E0a670f53
-TokenBronze = 0x84Ab8c7CFa6C6420b3F26De446708E73732b5bdB
+FACTORY_ADDRESS = 0xBB62AFFB8749c78d0D189eF91d5CC77eb8DF13AE
+TokenGold = 0x8B7857C6475d73250AB424df493d40b38765d264
+TokenSilver = 0xb2e80aacAbb882208Aa78ACc88CC790e05ecbD14
+TokenBronze = 0x7122c31009A6755ce5E5B3Ad84aA21c5fcE1A634
 
 Exchange 1
 gold/silver
-0x781e6D3b790c69c5eF6e8099142B8ff230B682fC
-0x48586DAD3200aC785BC9Bf641CEd9c9E0a670f53
+0x8B7857C6475d73250AB424df493d40b38765d264
+0xb2e80aacAbb882208Aa78ACc88CC790e05ecbD14
