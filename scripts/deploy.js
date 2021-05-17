@@ -1,3 +1,5 @@
+const hre = require('hardhat')
+
 async function main() {
     // Get signer
     const [deployer] = await ethers.getSigners();
@@ -8,6 +10,14 @@ async function main() {
 
     console.log('Factory Address: ', factory.address);
     console.log('INIT_CODE_PAIR_HASH: ', await factory.INIT_CODE_PAIR_HASH());
+
+    console.log('Verifying Factory Contract');
+    await hre.run('verify:verify', {
+      address: factory.address,
+      constructorArguments: [
+        deployer.address
+      ]
+    })
   }
   
 main()
